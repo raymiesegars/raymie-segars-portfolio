@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import StarsCanvas from "@/components/StarBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="flex flex-col justify-between min-h-screen p-1">
         <ThemeProvider attribute="class">
           <Navbar />
-          <main className="mx-auto max-w-3xl px-3 py-10">{children}</main>
+          <main className="mx-auto px-3 py-10 "><StarsCanvas />{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

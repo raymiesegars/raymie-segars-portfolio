@@ -4,8 +4,6 @@ import Image from "next/image";
 import raymie from "@/assets/raymie.png";
 import { H2 } from "@/components/ui/H2";
 import { Bot } from "lucide-react";
-import Technologies from "@/components/Technologies";
-
 
 export const metadata: Metadata = {
   title: "Raymie Segars",
@@ -13,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
+    <section className="max-w-3xl space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
       <section className="grid grid-cols-1 items-center gap-8 sm:grid-cols-2">
         <div className="space-y-3">
           <H1 className="text-center sm:text-start">Hi, I&apos;m Raymie 👋</H1>

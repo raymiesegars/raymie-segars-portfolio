@@ -1,22 +1,25 @@
 "use client";
 import { H2 } from "./ui/H2";
 import { H3 } from "./ui/H3";
-import { ReactIcon } from "./ui/ReactIcon";
-import { NodeIcon } from "./ui/NodeIcon";
-import { ExpressIcon } from "./ui/ExpressIcon";
-import { NextIcon } from "./ui/NextIcon";
-import { TailwindIcon } from "./ui/TailwindIcon";
-import { HTML5Icon } from "./ui/HTML5Icon";
-import { CSS3Icon } from "./ui/CSS3Icon";
-import { MySQLIcon } from "./ui/MySQLIcon";
-import { PostgreSQLIcon } from "./ui/PostgreSQLIcon";
-import { SassIcon } from "./ui/SassIcon";
+import { ReactIcon } from "./ui/AboutIcons/ReactIcon";
+import { NodeIcon } from "./ui/AboutIcons/NodeIcon";
+import { ExpressIcon } from "./ui/AboutIcons/ExpressIcon";
+import { NextIcon } from "./ui/AboutIcons/NextIcon";
+import { TailwindIcon } from "./ui/AboutIcons/TailwindIcon";
+import { HTML5Icon } from "./ui/AboutIcons/HTML5Icon";
+import { CSS3Icon } from "./ui/AboutIcons/CSS3Icon";
+import { MySQLIcon } from "./ui/AboutIcons/MySQLIcon";
+import { PostgreSQLIcon } from "./ui/AboutIcons/PostgreSQLIcon";
+import { SassIcon } from "./ui/AboutIcons/SassIcon";
 import { useState } from "react";
-import { GithubIcon } from "./ui/GithubIcon";
-import { MongoDBIcon } from "./ui/MongoDBIcon";
-import { ClerkIcon } from "./ui/ClerkIcon";
-import { PhotoshopIcon } from "./ui/PhotoshopIcon";
-import { FigmaIcon } from "./ui/FigmaIcon";
+import { GithubIcon } from "./ui/AboutIcons/GithubIcon";
+import { MongoDBIcon } from "./ui/AboutIcons/MongoDBIcon";
+import { ClerkIcon } from "./ui/AboutIcons/ClerkIcon";
+import { PhotoshopIcon } from "./ui/AboutIcons/PhotoshopIcon";
+import { FigmaIcon } from "./ui/AboutIcons/FigmaIcon";
+import { ZodIcon } from "./ui/AboutIcons/ZodIcon";
+import { VercelIcon } from "./ui/AboutIcons/VercelIcon";
+import { RailwayIcon } from "./ui/AboutIcons/RailwayIcon";
 
 interface Technology {
   name: string;
@@ -83,7 +86,13 @@ const technologiesDevelopment = [
     name: "Sass",
     Icon: SassIcon,
     url: "https://sass-lang.com/",
-    backgroundColor: "#8d14a821",
+    backgroundColor: "#8d14a855",
+  },
+  {
+    name: "Zod",
+    Icon: ZodIcon,
+    url: "https://www.npmjs.com/package/zod",
+    backgroundColor: "#18253f88",
   },
 ];
 
@@ -104,7 +113,19 @@ const technologiesServices = [
     name: "Clerk",
     Icon: ClerkIcon,
     url: "https://clerk.com/",
-    backgroundColor: "rgba(133,96,255,1)",
+    backgroundColor: "#8560ff90",
+  },
+  {
+    name: "Vercel",
+    Icon: VercelIcon,
+    url: "https://vercel.com/",
+    backgroundColor: "#f4f2ed55",
+  },
+  {
+    name: "Railway",
+    Icon: RailwayIcon,
+    url: "https://railway.app/",
+    backgroundColor: "#A21AE645",
   },
 ];
 
@@ -113,13 +134,13 @@ const technologiesApplications = [
     name: "Adobe Photoshop",
     Icon: PhotoshopIcon,
     url: "https://www.adobe.com/products/photoshop/landpa.html?gclid=CjwKCAiAxaCvBhBaEiwAvsLmWDa9I3QOH8VbZN0C6gexP3R3kgRhKC25A8uF_fFK-9isefGAYk7wwBoCeOYQAvD_BwE&sdid=P79NQKGF&mv=search&mv2=paidsearch&ef_id=CjwKCAiAxaCvBhBaEiwAvsLmWDa9I3QOH8VbZN0C6gexP3R3kgRhKC25A8uF_fFK-9isefGAYk7wwBoCeOYQAvD_BwE:G:s&s_kwcid=AL!3085!3!673842496258!e!!g!!photoshop!1712238394!67643541820&mv=search&gad_source=1",
-    backgroundColor: "#31A8FF",
+    backgroundColor: "#31A8FF88",
   },
   {
     name: "Figma",
     Icon: FigmaIcon,
     url: "https://www.figma.com/",
-    backgroundColor: "#FF7262",
+    backgroundColor: "#FF726288",
   },
 ];
 

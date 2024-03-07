@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="space-y-6">
+    <section className="max-w-3xl space-y-6">
       <H1>Social Media</H1>
       <section className="space-y-3">
   
