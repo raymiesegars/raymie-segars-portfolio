@@ -147,7 +147,7 @@ const ProjectsPage: React.FC = () => {
               passHref
             >
               <a
-                className="lg:min-w-144 relative block min-w-80 overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl md:min-w-96"
+                className="block overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl"
                 style={{
                   backgroundColor: project.backgroundColor,
                 }}
@@ -165,10 +165,9 @@ const ProjectsPage: React.FC = () => {
                   />
                 </div>
                 <div className="px-4 py-2">
-                  <p className="mb-3 min-h-36">{project.description}</p>{" "}
-                  {/* Increased min-height */}
+                  <p className="min-h-28">{project.description}</p>{" "}
                 </div>
-                <div className="absolute bottom-0 left-0 mb-2 ml-2 flex flex-wrap gap-2">
+                <div className="mb-2 ml-2 flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}

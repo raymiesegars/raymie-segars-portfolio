@@ -6,6 +6,8 @@ import AIChatButton from "./AIChatButton";
 import { useState } from "react";
 import { MenuSquareIcon, XCircleIcon } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
+import Chat from "@/components/chat/chat";
+import { SuccessModal } from "./ui/SuccessModal";
 
 interface NavLinkProps {
   href: string;
@@ -14,6 +16,19 @@ interface NavLinkProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
+  const closeChat = () => {
+    setIsCollapsed(false);
+  };
+
+  const onSubmitSuccess = () => {
+    console.log("Email successfully sent!");
+    setIsEmailSent(true);
+    closeChat();
+  };
 
   const downloadResume = async () => {
     try {
@@ -60,9 +75,19 @@ export default function Navbar() {
           Resume
         </button>
 
+        <Chat
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+          onSubmitSuccess={onSubmitSuccess}
+        />
+
+        <SuccessModal
+          isOpen={isEmailSent}
+          onClose={() => setIsEmailSent(false)}
+        />
+
         <div className="absolute right-0 top-0 flex md:hidden">
           {" "}
-          {/* Updated position */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             type="button"

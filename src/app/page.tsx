@@ -10,18 +10,6 @@ import { useState } from "react";
 import { SuccessModal } from "@/components/ui/SuccessModal";
 
 export default function Home() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isEmailSent, setIsEmailSent] = useState(false);
-
-  const closeChat = () => {
-    setIsCollapsed(false);
-  };
-
-  const onSubmitSuccess = () => {
-    console.log("Email successfully sent!"); // Debug log
-    setIsEmailSent(true);
-    closeChat();
-  };
 
   return (
     <section className="max-w-3xl space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
@@ -53,15 +41,6 @@ export default function Home() {
           The bot can even provide links to pages you&apos;re looking for.
         </p>
       </section>
-      <Chat
-        isCollapsed={isCollapsed}
-        setIsCollapsed={setIsCollapsed}
-        onSubmitSuccess={onSubmitSuccess}
-      />
-      <SuccessModal
-        isOpen={isEmailSent}
-        onClose={() => setIsEmailSent(false)}
-      />
     </section>
   );
 }

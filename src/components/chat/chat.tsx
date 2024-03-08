@@ -23,8 +23,7 @@ function Chat({
   };
   return (
     <div
-      className={`pb-5 fixed bottom-0 right-0 z-50 m-5 flex flex-col items-end space-y-2 ${!isCollapsed ? "pointer-events-none" : "pointer-events-auto"}`}
-      
+      className={`fixed bottom-0 right-0 z-[1] m-5 flex flex-col items-end space-y-1 pb-1 ${!isCollapsed ? "pointer-events-none" : "pointer-events-auto"}`}
     >
       <Card
         className={`px-3 transition-all duration-200 ease-linear  ${!isCollapsed ? "invisible translate-y-5 opacity-0" : "visible translate-y-0"}`}
@@ -35,7 +34,6 @@ function Chat({
         </CardHeader>
         <CardContent>
           <ChatForm onSubmitSuccess={onSubmitSuccess} />{" "}
-          {/* Pass onSubmitSuccess function to ChatForm */}
         </CardContent>
         <CardFooter
           className={"flex w-full flex-col items-start justify-end text-xs"}
