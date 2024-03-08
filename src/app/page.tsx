@@ -1,15 +1,28 @@
+"use client";
+
 import { H1 } from "@/components/ui/H1";
-import { Metadata } from "next";
 import Image from "next/image";
 import raymie from "@/assets/raymie.png";
 import { H2 } from "@/components/ui/H2";
 import { Bot } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Raymie Segars",
-};
+import Chat from "@/components/chat/chat";
+import { useState } from "react";
+import { SuccessModal } from "@/components/ui/SuccessModal";
 
 export default function Home() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
+  const closeChat = () => {
+    setIsCollapsed(false);
+  };
+
+  const onSubmitSuccess = () => {
+    console.log("Email successfully sent!"); // Debug log
+    setIsEmailSent(true);
+    closeChat();
+  };
+
   return (
     <section className="max-w-3xl space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
       <section className="grid grid-cols-1 items-center gap-8 sm:grid-cols-2">
@@ -40,6 +53,15 @@ export default function Home() {
           The bot can even provide links to pages you&apos;re looking for.
         </p>
       </section>
+      <Chat
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+        onSubmitSuccess={onSubmitSuccess}
+      />
+      <SuccessModal
+        isOpen={isEmailSent}
+        onClose={() => setIsEmailSent(false)}
+      />
     </section>
   );
 }

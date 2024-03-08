@@ -1,3 +1,6 @@
+import { DiscordIcon } from "@/components/ui/AboutIcons/DiscordIcon";
+import { GithubIcon } from "@/components/ui/AboutIcons/GithubIcon";
+import { LinkedInIcon } from "@/components/ui/AboutIcons/LinkedInIcon";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { Metadata } from "next";
@@ -12,40 +15,46 @@ export default function Page() {
     <section className="max-w-3xl space-y-6">
       <H1>Social Media</H1>
       <section className="space-y-3">
-  
-        <p>Links to all my social accounts:</p>
-        <ul className="list-inside list-disc space-y-1">
-          <li>
+        <ul className="list-inside p-3">
+          <li className="mb-3">
             <a
               href="https://github.com/raymiesegars"
-              className="text-primary hover:underline"
+              className="flex items-center text-primary hover:underline"
             >
-              Github
+              <GithubIcon className="mr-3" />
+              <span className="ml-2">Github</span>
             </a>
           </li>
-          
-          <li>
+          <li className="mb-3">
+            {" "}
             <a
-              href=""
-              className="text-primary hover:underline"
+              href="https://www.linkedin.com/in/raymie-segars/"
+              className="flex items-center text-primary hover:underline"
             >
-              Linked in
+              <LinkedInIcon className="mr-3" /> 
+              <span className="ml-2">LinkedIn</span>{" "}
+            </a>
+          </li>
+          <li className="mb-3">
+            {" "}
+            <a
+              href="https://www.discordapp.com/users/166250037326643200/"
+              className="flex items-center text-primary hover:underline"
+            >
+              <DiscordIcon className="mr-3" /> 
+              <span className="ml-2">Discord</span>{" "}
             </a>
           </li>
         </ul>
-        <hr className="border-muted" />
       </section>
-      
+
+      <hr className="border-muted" />
+
       <section className="space-y-3">
         <H2>Business inquiries</H2>
         <p>
-          If you want to work with me on a project please contact me via email at{" "}
-          <a
-            href="mailto:raymievsegarsiv@gmail.com"
-            className="text-primary hover:underline"
-          >
-            raymievsegarsiv@gmail.com
-          </a>
+          If you want to work with me on a project please contact me via email
+          in the bottom right of the <a href="/" className="text-blue-500">home</a> page{" "}
         </p>
       </section>
     </section>

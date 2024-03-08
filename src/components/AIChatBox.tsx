@@ -107,7 +107,7 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
           <button
             type="submit"
             className="flex w-10 flex-none items-center justify-center disabled:opacity-50"
-            disabled={isLoading || input.length === 0}
+            disabled={input.length === 0}
             title="Submit message"
           >
             <SendHorizonal size={24} />
@@ -145,7 +145,7 @@ function ChatMessage({ message: { role, content } }: ChatMessageProps) {
               <Link
                 {...props}
                 href={props.href ?? ""}
-                className="text-primary hover:underline"
+                className="text-blue-500 hover:underline"
               />
             ),
             p: ({ node, ...props }) => (

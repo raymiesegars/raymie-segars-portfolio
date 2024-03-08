@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 import AIChatButton from "./AIChatButton";
 import { useState } from "react";
 import { MenuSquareIcon, XCircleIcon } from "lucide-react";
+import { PDFDocument } from "pdf-lib";
 
 interface NavLinkProps {
   href: string;
@@ -13,50 +14,86 @@ interface NavLinkProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const downloadResume = async () => {
+    try {
+      const pdfBytes = await fetch("/raymie-segars-resume.pdf").then((res) =>
+        res.arrayBuffer(),
+      );
+
+      const pdfDoc = await PDFDocument.load(pdfBytes);
+
+      const pdfBlob = await pdfDoc.save();
+
+      const pdfUrl = URL.createObjectURL(new Blob([pdfBlob]));
+
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.setAttribute("download", "resume.pdf");
+      document.body.appendChild(link);
+
+      link.click();
+    } catch (error) {
+      console.error("Error downloading resume:", error);
+    }
+  };
+
   return (
     <header className="sticky top-0 bg-background">
-      <div className="mx-auto flex max-w-3xl flex-wrap justify-between gap-3 px-3 py-4 md:flex">
-        <nav className="space-x-4 font-medium">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-3 py-4 md:flex">
+        <nav className="space-x-2 font-medium">
           <NavLink href="/">home</NavLink>
           <NavLink href="/projects">projects</NavLink>
           <NavLink href="/about">about me</NavLink>
           <NavLink href="/social">social media</NavLink>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className=" flex hidden items-center gap-4 md:flex md:flex">
           <AIChatButton />
           <ThemeToggle />
         </div>
+
+        <button
+          className="hidden cursor-pointer rounded-md bg-[#31A8FF65] px-4 py-2 md:flex md:flex"
+          onClick={downloadResume}
+        >
+          Resume
+        </button>
+
+        <div className="absolute right-0 top-0 flex md:hidden">
+          {" "}
+          {/* Updated position */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 hover:bg-[#31A8FF65] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            {isMenuOpen ? (
+              <XCircleIcon className="block h-12 w-12" aria-hidden="true" />
+            ) : (
+              <MenuSquareIcon className="block h-12 w-12" aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* <div className="-mr-2 flex md:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          {isMenuOpen ? (
-            <XCircleIcon className="block h-12 w-12" aria-hidden="true" />
-          ) : (
-            <MenuSquareIcon className="block h-12 w-12" aria-hidden="true" />
-          )}
-        </button>
-      </div>
       {isMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="flex flex-col items-center space-y-3 px-2 pb-3 pt-3 sm:px-3">
-            <NavLink href="/">home</NavLink>
-            <NavLink href="/projects">projects</NavLink>
-            <NavLink href="/about">about me</NavLink>
-            <NavLink href="/social">social media</NavLink>
             <AIChatButton />
             <ThemeToggle />
+            <button
+              className="cursor-pointer rounded-md bg-[#31A8FF65] px-4 py-2"
+              onClick={downloadResume}
+            >
+              Resume
+            </button>
           </div>
         </div>
-      )} */}
+      )}
     </header>
   );
 }
@@ -64,7 +101,7 @@ export default function Navbar() {
 function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link legacyBehavior href={href}>
-      <a className="rounded-md px-3 py-1 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary">
+      <a className="rounded-md px-4 py-1 py-2 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary">
         {children}
       </a>
     </Link>
