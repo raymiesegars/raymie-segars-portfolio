@@ -39,7 +39,7 @@ export default function Page() {
       </section>
 
       <hr className="border-muted" />
-        <H2>Hobbies</H2>
+      <H2>Hobbies</H2>
       <section className="flex flex-col items-center space-y-3">
         <p className="p-2">
           Besides programming, I enjoy sports and video games. I lift weights
@@ -63,6 +63,7 @@ export default function Page() {
 
 //This is purely to give my resume information for AI to read
 //Raymie Segars
+//I have one nephew named Dylan Presley, he enjoys creating videos and playing Skate 3 and Fortnite.  He has a girlfriend who lives in Georgia and is 18. 
 // Asheville, NC 28803
 // raymievsegarsiv@gmail.com
 // +1843-906-8169
