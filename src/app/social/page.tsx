@@ -3,6 +3,7 @@
 import { DiscordIcon } from "@/components/ui/AboutIcons/DiscordIcon";
 import { GithubIcon } from "@/components/ui/AboutIcons/GithubIcon";
 import { LinkedInIcon } from "@/components/ui/AboutIcons/LinkedInIcon";
+import { TwitterIcon } from "@/components/ui/AboutIcons/TwitterIcon";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { useState } from "react";
@@ -31,6 +32,12 @@ const socialMedia = [
     Icon: DiscordIcon,
     url: "https://www.discordapp.com/users/166250037326643200/",
     backgroundColor: "#5865F255",
+  },
+  {
+    name: "Twitter",
+    Icon: TwitterIcon,
+    url: "https://twitter.com/raymiesegarsiv",
+    backgroundColor: "#E7E9EA55",
   },
 ];
 
