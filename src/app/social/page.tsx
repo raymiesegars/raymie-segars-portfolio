@@ -23,7 +23,7 @@ const socialMedia = [
   {
     name: "LinkedIn",
     Icon: LinkedInIcon,
-    url: "https://github.com/raymiesegars",
+    url: "https://www.linkedin.com/in/ray-segars-32096b2b0/",
     backgroundColor: "#0A66C255",
   },
   {
