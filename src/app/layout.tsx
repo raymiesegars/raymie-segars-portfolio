@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import StarsCanvas from "@/components/StarBackground";
+import { StarCanvasProvider } from "@/components/StarCanvasContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="flex flex-col justify-between min-h-screen p-1">
-        <ThemeProvider attribute="class">
-          <Navbar />
-          <main className="mx-auto px-3 py-10 "><StarsCanvas />{children}</main>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+    <StarCanvasProvider>
+      <html lang="en">
+        <body className="flex min-h-screen flex-col justify-between p-1">
+          <ThemeProvider attribute="class">
+            <Navbar />
+            <main className="mx-auto px-3 py-10 ">
+              <StarsCanvas />
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </StarCanvasProvider>
   );
 }

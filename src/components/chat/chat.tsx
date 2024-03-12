@@ -56,6 +56,7 @@ function Chat({
         variant={"outline"}
         size={"iconLg"}
         onClick={() => setIsCollapsed(!isCollapsed)}
+        aria-label="Email me a message button"
       >
         <svg
           className="with-icon_icon__MHUeb"

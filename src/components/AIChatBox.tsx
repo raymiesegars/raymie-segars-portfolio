@@ -49,7 +49,7 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
     >
       <div className="flex h-[600px] flex-col rounded border bg-background p-2 shadow-xl">
         <button onClick={onClose} className="mb1 ms-auto block">
-          <XCircle size={30} className="rounded-full bg-background" />
+          <XCircle size={30} className="rounded-full bg-background" aria-label="Button to close the chat" />
         </button>
         <div className="mt-3 h-full overflow-y-auto px-3" ref={scrollRef}>
           {messages.map((message) => (
@@ -94,10 +94,13 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
             className="flex w-10 flex-none items-center justify-center"
             title="Clear chat"
             onClick={() => setMessages([])}
+            aria-label="Button to clear chat"
           >
             <Trash size={24} />
           </button>
+          <label htmlFor="chat-input" className="sr-only">Type your message here</label>
           <input
+            id="chat-input"
             value={input}
             onChange={handleInputChange}
             placeholder="Ask something here..."
@@ -109,6 +112,7 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
             className="flex w-10 flex-none items-center justify-center disabled:opacity-50"
             disabled={input.length === 0}
             title="Submit message"
+            aria-label="Button to send your message to the chatbot"
           >
             <SendHorizonal size={24} />
           </button>

@@ -5,9 +5,6 @@ import Image from "next/image";
 import raymie from "@/assets/raymie.png";
 import { H2 } from "@/components/ui/H2";
 import { Bot } from "lucide-react";
-import Chat from "@/components/chat/chat";
-import { useState } from "react";
-import { SuccessModal } from "@/components/ui/SuccessModal";
 
 export default function Home() {
 

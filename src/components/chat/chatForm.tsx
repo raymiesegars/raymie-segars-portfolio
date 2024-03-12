@@ -67,9 +67,13 @@ export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
           name={"email"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
+              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormControl
+              id="email"
+              
+              >
                 <Input
+                  id="email"
                   type={"email"}
                   autoComplete={"off"}
                   placeholder="Email"
@@ -83,9 +87,9 @@ export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
           name={"subject"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel htmlFor="subject">Subject</FormLabel>
               <FormControl>
-                <Input placeholder="Subject" {...field} />
+                <Input id="subject" placeholder="Subject" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -94,9 +98,10 @@ export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
           name={"body"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Body</FormLabel>
+              <FormLabel htmlFor="body">Body</FormLabel>
               <FormControl>
                 <Textarea
+                  id="body"
                   placeholder="Write here your Message"
                   className={"resize-none "}
                   rows={8}

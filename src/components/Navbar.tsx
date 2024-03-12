@@ -8,6 +8,9 @@ import { MenuSquareIcon, XCircleIcon } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
 import Chat from "@/components/chat/chat";
 import { SuccessModal } from "./ui/SuccessModal";
+import { useStarCanvas } from "./StarCanvasContext";
+import { Button } from "./ui/button";
+import { StarIcon } from "./ui/AboutIcons/StarIcon";
 
 interface NavLinkProps {
   href: string;
@@ -16,7 +19,7 @@ interface NavLinkProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { toggleVisibility } = useStarCanvas();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
 
@@ -56,21 +59,29 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 bg-background">
       <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-3 py-4 md:flex">
-        <nav className="space-x-2 font-medium">
+        <nav className="hidden space-x-2 font-medium md:flex">
           <NavLink href="/">home</NavLink>
           <NavLink href="/projects">projects</NavLink>
           <NavLink href="/about">about me</NavLink>
           <NavLink href="/social">social media</NavLink>
         </nav>
 
-        <div className=" flex hidden items-center gap-4 md:flex md:flex">
-          <AIChatButton />
+        <div className="flex hidden items-center gap-4 md:flex">
+          <AIChatButton  />
           <ThemeToggle />
+          <button
+            onClick={toggleVisibility}
+            aria-label="Button to pause star background animation"
+            className="flex h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-[#31A8FF88]"
+          >
+            <StarIcon />
+          </button>
         </div>
 
         <button
-          className="hidden cursor-pointer rounded-md bg-[#31A8FF65] px-4 py-2 md:flex md:flex"
+          className="hidden cursor-pointer rounded-md bg-[#31A8FF65] hover:bg-[#31a9ff99] px-4 py-2 md:flex"
           onClick={downloadResume}
+          aria-label="Download Resume"
         >
           Resume
         </button>
@@ -108,11 +119,23 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="flex flex-col items-center space-y-3 px-2 pb-3 pt-3 sm:px-3">
-            <AIChatButton />
-            <ThemeToggle />
+            <NavLink href="/">home</NavLink>
+            <NavLink href="/projects">projects</NavLink>
+            <NavLink href="/about">about me</NavLink>
+            <NavLink href="/social">social media</NavLink>
+            <AIChatButton className="hover:bg-[#31A8FF88]" />
+            <ThemeToggle className="hover:bg-[#31A8FF88]" />
+            <button
+              onClick={toggleVisibility}
+              aria-label="Button to pause star background animation"
+              className="flex h-6 w-6 items-center justify-center rounded-full hover:bg-[#31A8FF88]"
+            >
+              <StarIcon />
+            </button>
             <button
               className="cursor-pointer rounded-md bg-[#31A8FF65] px-4 py-2"
               onClick={downloadResume}
+              aria-label="Download Resume"
             >
               Resume
             </button>

@@ -9,7 +9,11 @@ export default function AIChatButton() {
 
   return (
     <>
-      <button onClick={() => setChatBoxOpen(true)}>
+      <button
+        onClick={() => setChatBoxOpen(true)}
+        aria-label="Ai Chat Box Button"
+        className="relative flex items-center justify-center rounded-full p-2 transition-colors duration-150 hover:bg-[#31A8FF88]"
+      >
         <Bot size={24} />
       </button>
       <AIChatBox open={chatBoxOpen} onClose={() => setChatBoxOpen(false)} />
