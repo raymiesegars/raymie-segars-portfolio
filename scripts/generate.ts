@@ -25,6 +25,10 @@ async function generateEmbeddings() {
 
   const docs = (await loader.load())
     .filter((doc) => doc.metadata.source.endsWith("page.tsx"))
+    .filter((doc) => doc.metadata.source.includes("/projects/farmers-market-finds/page.tsx"))
+    .filter((doc) => doc.metadata.source.includes("/projects/invoice-dashboard/page.tsx"))
+    .filter((doc) => doc.metadata.source.includes("/projects/job-board/page.tsx"))
+    .filter((doc) => doc.metadata.source.includes("/projects/note-it/page.tsx"))
     .map((doc): DocumentInterface => {
       const url =
         doc.metadata.source
