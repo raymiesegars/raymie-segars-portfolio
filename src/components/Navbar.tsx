@@ -123,8 +123,8 @@ export default function Navbar() {
             <NavLink href="/projects">projects</NavLink>
             <NavLink href="/about">about me</NavLink>
             <NavLink href="/social">social media</NavLink>
-            <AIChatButton className="hover:bg-[#31A8FF88]" />
-            <ThemeToggle className="hover:bg-[#31A8FF88]" />
+            <AIChatButton />
+            <ThemeToggle />
             <button
               onClick={toggleVisibility}
               aria-label="Button to pause star background animation"
