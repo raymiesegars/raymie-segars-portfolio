@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { DiscordIcon } from "@/components/ui/AboutIcons/DiscordIcon";
 import { GithubIcon } from "@/components/ui/AboutIcons/GithubIcon";
@@ -7,6 +7,7 @@ import { TwitterIcon } from "@/components/ui/AboutIcons/TwitterIcon";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { useState } from "react";
+import Head from "next/head";
 
 interface Socials {
   name: string;
@@ -45,84 +46,72 @@ export default function Page() {
   const [iconSize, setIconSize] = useState(55);
 
   return (
-    <section className="max-w-3xl space-y-6">
-      <H1>Social Media</H1>
-      {/* <section className="space-y-3">
-        <ul className="list-inside p-3">
-          <li className="mb-3">
+    <>
+      <Head>
+        <title>Social Media - Raymie Segars</title>
+        <meta
+          name="description"
+          content="Connect with Raymie Segars on social media platforms like GitHub, LinkedIn, Discord, and Twitter."
+        />
+        <meta property="og:title" content="Social Media - Raymie Segars" />
+        <meta
+          property="og:description"
+          content="Follow Raymie Segars across various social media platforms to stay updated with the latest projects and collaborations."
+        />
+        {/* <meta
+          property="og:image"
+          content="https://example.com/path-to-your-image.jpg"
+        /> */}
+        <meta property="og:type" content="website" />
+      </Head>
+
+      <main className="max-w-3xl space-y-6">
+        <H1>Social Media</H1>
+
+        <nav className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
+          {socialMedia.map((tech, index) => (
             <a
-              href="https://github.com/raymiesegars"
-              className="flex items-center text-primary hover:underline"
+              key={index}
+              href={tech.url}
+              className="flex items-center gap-3 rounded-lg border p-5 transition duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                minWidth: "150px",
+                minHeight: "100px",
+                backgroundColor: tech.backgroundColor,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = tech.backgroundColor;
+              }}
             >
-              <GithubIcon className="mr-3" />
-              <span className="ml-2">Github</span>
-            </a>
-          </li>
-          <li className="mb-3">
-            {" "}
-            <a
-              href="https://www.linkedin.com/in/raymie-segars/"
-              className="flex items-center text-primary hover:underline"
-            >
-              <LinkedInIcon className="mr-3" /> 
-              <span className="ml-2">LinkedIn</span>{" "}
-            </a>
-          </li>
-          <li className="mb-3">
-            {" "}
-            <a
-              href="https://www.discordapp.com/users/166250037326643200/"
-              className="flex items-center text-primary hover:underline"
-            >
-              <DiscordIcon className="mr-3" /> 
-              <span className="ml-2">Discord</span>{" "}
-            </a>
-          </li>
-        </ul>
-      </section> */}
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-        {socialMedia.map((tech, index) => (
-          <a
-            key={index}
-            href={tech.url}
-            className="flex items-center gap-3 rounded-lg border p-5 transition duration-300"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              minWidth: "150px",
-              minHeight: "100px",
-              backgroundColor: tech.backgroundColor,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = tech.backgroundColor;
-            }}
-          >
-            <div className="flex items-center justify-start">
-              <div className="flex h-16 w-16 items-center justify-center">
-                <tech.Icon
-                  className="text"
-                  width={iconSize}
-                  height={iconSize}
-                />
+              <div className="flex items-center justify-start">
+                <div className="flex h-16 w-16 items-center justify-center">
+                  <tech.Icon
+                    className="text"
+                    width={iconSize}
+                    height={iconSize}
+                  />
+                </div>
+                <span className="ml-3">{tech.name}</span>
               </div>
-              <span className="ml-3">{tech.name}</span>
-            </div>
-          </a>
-        ))}
-      </div>
+            </a>
+          ))}
+        </nav>
 
-      <hr className="border-muted" />
+        <hr className="border-muted" />
 
-      <section className="space-y-3">
-        <H2>Business inquiries</H2>
-        <p>
-          If you want to work with me on a project please contact me via email
-          in the bottom right of any page{" "}
-        </p>
-      </section>
-    </section>
+        <section className="space-y-3">
+          <H2>Business inquiries</H2>
+          <p>
+            If you want to work with me on a project please contact me via email
+            in the bottom right of any page{" "}
+          </p>
+        </section>
+      </main>
+    </>
   );
 }

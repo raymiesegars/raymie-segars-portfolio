@@ -9,13 +9,9 @@ import { TailwindIcon } from "@/components/ui/AboutIcons/TailwindIcon";
 import { VercelIcon } from "@/components/ui/AboutIcons/VercelIcon";
 import { ZodIcon } from "@/components/ui/AboutIcons/ZodIcon";
 import { MongoDBIconProjectTechnology } from "@/components/ui/ProjectIcons/MongoDBIconProject";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Projects",
-};
+import Head from "next/head";
 
 interface Project {
   id: string;
@@ -135,54 +131,71 @@ const getTechnologyIcon = (name: string) => {
 
 const ProjectsPage: React.FC = () => {
   return (
-    <div className="flex justify-center">
-      <div className="max-w-full p-4">
-        <h1 className="mb-6 text-center text-3xl font-bold">My Projects</h1>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project: Project, index: number) => (
-            <Link
-              legacyBehavior
-              key={project.id}
-              href={project.detailPageUrl}
-              passHref
-            >
-              <a
-                className="block overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl"
-                style={{
-                  backgroundColor: project.backgroundColor,
-                }}
+    <>
+      <Head>
+        <title>Projects - Raymie Segars</title>
+        <meta
+          name="description"
+          content="Discover projects developed by Raymie Segars, featuring technologies like React, MongoDB, and Next.js."
+        />
+        <meta property="og:title" content="Projects - Raymie Segars" />
+        <meta
+          property="og:description"
+          content="Explore the innovative projects by Raymie Segars, showcasing skills in web development and software engineering."
+        />
+        {/* <meta property="og:image" content="/path-to-your-image.jpg" />{" "} */}
+        {/* Replace with a relevant image path */}
+        <meta property="og:type" content="website" />
+      </Head>
+      <main className="flex justify-center">
+        <div className="max-w-full p-4">
+          <h1 className="mb-6 text-center text-3xl font-bold">My Projects</h1>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project: Project, index: number) => (
+              <Link
+                legacyBehavior
+                key={project.id}
+                href={project.detailPageUrl}
+                passHref
               >
-                <div className="p-4">
-                  <h2 className="text-2xl font-semibold">{project.title}</h2>
-                </div>
-                <div className="flex justify-center">
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.title}
-                    height={225}
-                    width={400}
-                    className="h-48 rounded-md border-2 border-gray-300 object-cover shadow-md dark:border-gray-700"
-                  />
-                </div>
-                <div className="px-4 py-2">
-                  <p className="min-h-28">{project.description}</p>{" "}
-                </div>
-                <div className="mb-2 ml-2 flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-full"
-                    >
-                      {getTechnologyIcon(tech.name)}
-                    </span>
-                  ))}
-                </div>
-              </a>
-            </Link>
-          ))}
+                <a
+                  className="block overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl"
+                  style={{
+                    backgroundColor: project.backgroundColor,
+                  }}
+                >
+                  <div className="p-4">
+                    <h2 className="text-2xl font-semibold">{project.title}</h2>
+                  </div>
+                  <div className="flex justify-center">
+                    <Image
+                      src={project.imageUrl}
+                      alt={`Raymie Segars Project - ${project.title}`}
+                      height={225}
+                      width={400}
+                      className="h-48 rounded-md border-2 border-gray-300 object-cover shadow-md dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="px-4 py-2">
+                    <p className="min-h-28">{project.description}</p>{" "}
+                  </div>
+                  <div className="mb-2 ml-2 flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
+                      >
+                        {getTechnologyIcon(tech.name)}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 
