@@ -12,6 +12,7 @@ import { MongoDBIconProjectTechnology } from "@/components/ui/ProjectIcons/Mongo
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import { StripeIcon } from "@/components/ui/AboutIcons/StripeIcon";
 
 interface Project {
   id: string;
@@ -28,6 +29,43 @@ interface Technology {
 }
 
 const projects: Project[] = [
+  {
+    id: "farmer-market-finds",
+    title: "Farmers Market Finds",
+    description:
+      "Website where vendors who plan to attend a farmers market can declare goods at certain market dates. The general public can then browse markets, vendors, and goods to plan out their farmers market adventures.",
+    technologies: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Clerk" },
+      { name: "Zod" },
+      { name: "Vercel" },
+      { name: "PostgreSQL" },
+      { name: "Tailwind" },
+    ],
+    imageUrl: "/farmers-market-finds.png",
+    detailPageUrl: "/projects/farmers-market-finds",
+    backgroundColor: "#19A54938",
+  },
+  {
+    id: "image-alchemy",
+    title: "Image Alchemy",
+    description:
+      "Freely transform uploaded images using Ai and save them publicly on the site.",
+    technologies: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "MongoDB" },
+      { name: "Stripe" },
+      { name: "Clerk" },
+      { name: "Zod" },
+      { name: "Vercel" },
+      { name: "Tailwind" },
+    ],
+    imageUrl: "/image-alchemy.png",
+    detailPageUrl: "/projects/image-alchemy",
+    backgroundColor: "#6AD5BA38",
+  },
   {
     id: "note-it",
     title: "Note-it",
@@ -63,24 +101,6 @@ const projects: Project[] = [
     imageUrl: "/job-board.png",
     detailPageUrl: "/projects/job-board",
     backgroundColor: "rgba(255,235,235,0.13)",
-  },
-  {
-    id: "farmer-market-finds",
-    title: "Farmers Market Finds",
-    description:
-      "Website where vendors who plan to attend a farmers market can declare goods at certain market dates. The general public can then browse markets, vendors, and goods to plan out their farmers market adventures.",
-    technologies: [
-      { name: "Next.js" },
-      { name: "React" },
-      { name: "Clerk" },
-      { name: "Zod" },
-      { name: "Vercel" },
-      { name: "PostgreSQL" },
-      { name: "Tailwind" },
-    ],
-    imageUrl: "/farmers-market-finds.png",
-    detailPageUrl: "/projects/farmers-market-finds",
-    backgroundColor: "#19A54938",
   },
   {
     id: "invoice-dashboard",
@@ -124,6 +144,8 @@ const getTechnologyIcon = (name: string) => {
       return <RailwayIcon />;
     case "Tailwind":
       return <TailwindIcon />;
+    case "Stripe":
+      return <StripeIcon />;
     default:
       return null;
   }

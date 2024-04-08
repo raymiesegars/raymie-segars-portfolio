@@ -20,6 +20,7 @@ import { FigmaIcon } from "./ui/AboutIcons/FigmaIcon";
 import { ZodIcon } from "./ui/AboutIcons/ZodIcon";
 import { VercelIcon } from "./ui/AboutIcons/VercelIcon";
 import { RailwayIcon } from "./ui/AboutIcons/RailwayIcon";
+import { StripeIcon } from "./ui/AboutIcons/StripeIcon";
 
 interface Technology {
   name: string;
@@ -83,12 +84,6 @@ const technologiesDevelopment = [
     backgroundColor: "rgba(11,255,255,0.13)",
   },
   {
-    name: "Sass",
-    Icon: SassIcon,
-    url: "https://sass-lang.com/",
-    backgroundColor: "#8d14a855",
-  },
-  {
     name: "Zod",
     Icon: ZodIcon,
     url: "https://www.npmjs.com/package/zod",
@@ -114,6 +109,12 @@ const technologiesServices = [
     Icon: ClerkIcon,
     url: "https://clerk.com/",
     backgroundColor: "#8560ff90",
+  },
+  {
+    name: "Stripe",
+    Icon: StripeIcon,
+    url: "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20839462206&utm_medium=cpc&utm_source=google&ad_content=683853401230&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjwiMmwBhDmARIsABeQ7xT_Yb6R7yc1GfxP9va-6-BsQnxJ5OEDM7sOnU5KXkkw6WksBtgeE1MaAnwmEALw_wcB",
+    backgroundColor: "#635bff55",
   },
   {
     name: "Vercel",
