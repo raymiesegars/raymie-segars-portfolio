@@ -61,7 +61,7 @@ const projects: Project[] = [
     id: "rupee-clicker",
     title: "Rupee Clicker",
     description:
-      "Idle Zelda inspired clicker game where you click to earn rupees, and can spend them on upgrades to earn more rupees per passively.",
+      "Idle Zelda inspired clicker game where you click to earn rupees, and can spend them on upgrades to earn more rupees per second passively.",
     technologies: [
       { name: "Next.js" },
       { name: "React" },
