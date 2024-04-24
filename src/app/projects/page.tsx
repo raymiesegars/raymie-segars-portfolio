@@ -1,3 +1,5 @@
+"use client";
+
 import { ClerkIcon } from "@/components/ui/AboutIcons/ClerkIcon";
 import { ExpressIcon } from "@/components/ui/AboutIcons/ExpressIcon";
 import { NextIcon } from "@/components/ui/AboutIcons/NextIcon";
@@ -13,6 +15,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { StripeIcon } from "@/components/ui/AboutIcons/StripeIcon";
+import { Seedling } from "@/components/ui/ProjectIcons/Seedling";
+import { FC } from "react";
+import ProgressBar from "@/components/ui/ProjectIcons/CircularProgressBar";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 interface Project {
   id: string;
@@ -22,6 +28,8 @@ interface Project {
   imageUrl: string;
   detailPageUrl: string;
   backgroundColor: string;
+  isOriginal: boolean;
+  completeness: number;
 }
 
 interface Technology {
@@ -46,6 +54,26 @@ const projects: Project[] = [
     imageUrl: "/farmers-market-finds.png",
     detailPageUrl: "/projects/farmers-market-finds",
     backgroundColor: "#19A54938",
+    isOriginal: true,
+    completeness: 95,
+  },
+  {
+    id: "rupee-clicker",
+    title: "Rupee Clicker",
+    description:
+      "Idle Zelda inspired clicker game where you click to earn rupees, and can spend them on upgrades to earn more rupees per passively.",
+    technologies: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Vercel" },
+      { name: "MongoDB" },
+      { name: "Tailwind" },
+    ],
+    imageUrl: "/rupee-clicker.png",
+    detailPageUrl: "/projects/rupee-clicker",
+    backgroundColor: "#64FE8765",
+    isOriginal: true,
+    completeness: 15,
   },
   {
     id: "image-alchemy",
@@ -65,6 +93,8 @@ const projects: Project[] = [
     imageUrl: "/image-alchemy.png",
     detailPageUrl: "/projects/image-alchemy",
     backgroundColor: "#6AD5BA38",
+    isOriginal: false,
+    completeness: 90,
   },
   {
     id: "note-it",
@@ -83,6 +113,8 @@ const projects: Project[] = [
     imageUrl: "/note-it.png",
     detailPageUrl: "/projects/note-it",
     backgroundColor: "#3E66AF21",
+    isOriginal: false,
+    completeness: 99,
   },
   {
     id: "job-board",
@@ -101,6 +133,8 @@ const projects: Project[] = [
     imageUrl: "/job-board.png",
     detailPageUrl: "/projects/job-board",
     backgroundColor: "rgba(255,235,235,0.13)",
+    isOriginal: false,
+    completeness: 99,
   },
   {
     id: "invoice-dashboard",
@@ -117,6 +151,8 @@ const projects: Project[] = [
     imageUrl: "/invoice-dashboard.png",
     detailPageUrl: "/projects/invoice-dashboard",
     backgroundColor: "#93C5FD35",
+    isOriginal: false,
+    completeness: 99,
   },
 ];
 
@@ -151,7 +187,12 @@ const getTechnologyIcon = (name: string) => {
   }
 };
 
-const ProjectsPage: React.FC = () => {
+const Original: FC<{ isOriginal: boolean }> = ({ isOriginal }) =>
+  isOriginal ? (
+    <Seedling className="absolute right-2 top-2 h-6 w-6 text-yellow-500" />
+  ) : null;
+
+const ProjectsPage: FC = () => {
   return (
     <>
       <Head>
@@ -165,51 +206,71 @@ const ProjectsPage: React.FC = () => {
           property="og:description"
           content="Explore the innovative projects by Raymie Segars, showcasing skills in web development and software engineering."
         />
-        {/* <meta property="og:image" content="/path-to-your-image.jpg" />{" "} */}
-        {/* Replace with a relevant image path */}
         <meta property="og:type" content="website" />
       </Head>
+
       <main className="flex justify-center">
         <div className="max-w-full p-4">
           <h1 className="mb-6 text-center text-3xl font-bold">My Projects</h1>
+          <div className="mb-6 flex flex-col justify-center gap-8 sm:flex-row">
+            <div className="mb-6 flex items-center justify-center text-center text-2xl font-semibold">
+              <Seedling className="inline-block h-6 w-6" /> = 100% original
+              projects
+            </div>
+            <div className="mb-6 flex items-center justify-center text-center text-2xl font-semibold">
+              <div className="flex items-center whitespace-nowrap">
+                <CircularProgressbar
+                  className="inline-block h-14 w-14"
+                  value={100}
+                  text="100%"
+                />{" "}
+                = project completion
+              </div>
+            </div>
+          </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project: Project, index: number) => (
+            {projects.map((project) => (
               <Link
-                legacyBehavior
                 key={project.id}
                 href={project.detailPageUrl}
                 passHref
+                legacyBehavior
               >
                 <a
-                  className="block overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl"
-                  style={{
-                    backgroundColor: project.backgroundColor,
-                  }}
+                  className="relative block flex flex-col justify-between overflow-hidden rounded-lg border shadow-lg transition-shadow hover:border-gray-300 hover:shadow-xl"
+                  style={{ backgroundColor: project.backgroundColor }}
                 >
                   <div className="p-4">
-                    <h2 className="text-2xl font-semibold">{project.title}</h2>
-                  </div>
-                  <div className="flex justify-center">
+                    <div className="flex justify-between">
+                      <h2 className="text-2xl font-semibold">
+                        {project.title}
+                      </h2>
+                      <Original isOriginal={project.isOriginal} />
+                    </div>
                     <Image
                       src={project.imageUrl}
                       alt={`Raymie Segars Project - ${project.title}`}
                       height={225}
                       width={400}
-                      className="h-48 rounded-md border-2 border-gray-300 object-cover shadow-md dark:border-gray-700"
+                      className="mx-auto mt-3 rounded-md object-cover"
                     />
+                    <p className="my-3">{project.description}</p>
                   </div>
-                  <div className="px-4 py-2">
-                    <p className="min-h-28">{project.description}</p>{" "}
-                  </div>
-                  <div className="mb-2 ml-2 flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-full"
-                      >
-                        {getTechnologyIcon(tech.name)}
-                      </span>
-                    ))}
+                  <div className="flex justify-between p-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full"
+                        >
+                          {getTechnologyIcon(tech.name)}
+                        </span>
+                      ))}
+                    </div>
+                    <ProgressBar
+                      completeness={project.completeness}
+                      text={project.completeness}
+                    />
                   </div>
                 </a>
               </Link>
