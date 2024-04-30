@@ -2,7 +2,7 @@
 
 import { H1 } from "@/components/ui/H1";
 import Image from "next/image";
-import raymie from "@/assets/raymie.png";
+import raymie from "@/assets/raymie.jpg";
 import { H2 } from "@/components/ui/H2";
 import { Bot } from "lucide-react";
 import Head from "next/head";
