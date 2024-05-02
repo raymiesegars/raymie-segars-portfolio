@@ -19,6 +19,7 @@ import { Seedling } from "@/components/ui/ProjectIcons/Seedling";
 import { FC } from "react";
 import ProgressBar from "@/components/ui/ProjectIcons/CircularProgressBar";
 import { CircularProgressbar } from "react-circular-progressbar";
+import { ThreejsIcon } from "@/components/ui/AboutIcons/ThreejsIcon";
 
 interface Project {
   id: string;
@@ -74,6 +75,24 @@ const projects: Project[] = [
     backgroundColor: "#64FE8765",
     isOriginal: true,
     completeness: 15,
+  },
+  {
+    id: "three.js-tutorial",
+    title: "Three.js Tutorial with Next.js",
+    description:
+      "JSM Three.js tutorial using Next.js instead of React, with some changes.",
+    technologies: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Three.js" },
+      { name: "Vercel" },
+      { name: "Tailwind" },
+    ],
+    imageUrl: "/threejs-tutorial.png",
+    detailPageUrl: "/projects/three.js-tutorial",
+    backgroundColor: "#d77f5d75",
+    isOriginal: false,
+    completeness: 99,
   },
   {
     id: "image-alchemy",
@@ -182,6 +201,8 @@ const getTechnologyIcon = (name: string) => {
       return <TailwindIcon />;
     case "Stripe":
       return <StripeIcon />;
+    case "Three.js":
+      return <ThreejsIcon />;
     default:
       return null;
   }
