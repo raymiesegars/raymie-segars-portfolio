@@ -16,6 +16,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { StripeIcon } from "@/components/ui/AboutIcons/StripeIcon";
 import { Seedling } from "@/components/ui/ProjectIcons/Seedling";
+import { Tutorial } from "@/components/ui/ProjectIcons/Tutorial";
 import { FC } from "react";
 import ProgressBar from "@/components/ui/ProjectIcons/CircularProgressBar";
 import { CircularProgressbar } from "react-circular-progressbar";
@@ -30,6 +31,7 @@ interface Project {
   detailPageUrl: string;
   backgroundColor: string;
   isOriginal: boolean;
+  isTutorial: boolean;
   completeness: number;
 }
 
@@ -56,6 +58,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/farmers-market-finds",
     backgroundColor: "#19A54938",
     isOriginal: true,
+    isTutorial: false,
     completeness: 95,
   },
   {
@@ -75,6 +78,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/rupee-clicker",
     backgroundColor: "#64FE8765",
     isOriginal: true,
+    isTutorial: false,
     completeness: 15,
   },
   {
@@ -93,6 +97,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/three.js-tutorial",
     backgroundColor: "#d77f5d75",
     isOriginal: false,
+    isTutorial: true,
     completeness: 99,
   },
   {
@@ -114,6 +119,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/image-alchemy",
     backgroundColor: "#6AD5BA38",
     isOriginal: false,
+    isTutorial: true,
     completeness: 90,
   },
   {
@@ -134,6 +140,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/note-it",
     backgroundColor: "#3E66AF21",
     isOriginal: false,
+    isTutorial: true,
     completeness: 99,
   },
   {
@@ -154,6 +161,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/job-board",
     backgroundColor: "rgba(255,235,235,0.13)",
     isOriginal: false,
+    isTutorial: true,
     completeness: 99,
   },
   {
@@ -172,6 +180,7 @@ const projects: Project[] = [
     detailPageUrl: "/projects/invoice-dashboard",
     backgroundColor: "#93C5FD35",
     isOriginal: false,
+    isTutorial: true,
     completeness: 99,
   },
 ];
@@ -214,6 +223,11 @@ const Original: FC<{ isOriginal: boolean }> = ({ isOriginal }) =>
     <Seedling className="absolute right-2 top-2 h-6 w-6 text-yellow-500" />
   ) : null;
 
+const TutorialConcept: FC<{ isTutorial: boolean }> = ({ isTutorial }) =>
+  isTutorial ? (
+    <Tutorial className="absolute right-2 top-2 h-6 w-6 text-yellow-500" />
+  ) : null;
+
 const ProjectsPage: FC = () => {
   return (
     <>
@@ -237,6 +251,10 @@ const ProjectsPage: FC = () => {
           <div className="mb-6 flex flex-col justify-center gap-8 sm:flex-row">
             <div className="mb-6 flex items-center justify-center text-center text-2xl font-semibold">
               <Seedling className="inline-block h-6 w-6" /> = 100% original
+              projects
+            </div>
+            <div className="mb-6 flex items-center justify-center text-center text-2xl font-semibold">
+              <Tutorial className="inline-block h-6 w-6" /> = tutorial concept
               projects
             </div>
             <div className="mb-6 flex items-center justify-center text-center text-2xl font-semibold">
@@ -268,15 +286,26 @@ const ProjectsPage: FC = () => {
                         {project.title}
                       </h2>
                       <Original isOriginal={project.isOriginal} />
+                      <TutorialConcept isTutorial={project.isTutorial} />
                     </div>
-                    <Image
-                      src={project.imageUrl}
-                      alt={`Raymie Segars Project - ${project.title}`}
-                      height={225}
-                      width={400}
-                      className="mx-auto mt-3 rounded-md object-cover"
-                    />
-                    <p className="my-3">{project.description}</p>
+                    <div
+                      className="image-container"
+                      style={{
+                        height: "225px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Image
+                        src={project.imageUrl}
+                        alt={`Raymie Segars Project - ${project.title}`}
+                        height={225}
+                        width={400}
+                        className="mx-auto mt-3 rounded-md object-cover"
+                      />
+                    </div>
+                    <p className="mt-8 mb-0">{project.description}</p>
                   </div>
                   <div className="flex justify-between p-4">
                     <div className="flex flex-wrap gap-2">
