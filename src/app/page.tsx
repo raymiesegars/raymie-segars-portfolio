@@ -51,7 +51,7 @@ export default function Home() {
             />
           </div>
         </section>
-        {/* <section className="space-y-3 text-center">
+        <section className="space-y-3 text-center">
           <H2>Ask the chatbot anything about me</H2>
           <p>
             Click the little <Bot className="inline pb-1" /> icon in the
@@ -60,7 +60,7 @@ export default function Home() {
             website. The bot can even provide links to pages you&apos;re looking
             for.
           </p>
-        </section> */}
+        </section>
       </main>
     </>
   );

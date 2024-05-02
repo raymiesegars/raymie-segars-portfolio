@@ -49,7 +49,11 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
     >
       <div className="flex h-[600px] flex-col rounded border bg-background p-2 shadow-xl">
         <button onClick={onClose} className="mb1 ms-auto block">
-          <XCircle size={30} className="rounded-full bg-background" aria-label="Button to close the chat" />
+          <XCircle
+            size={30}
+            className="rounded-full bg-background"
+            aria-label="Button to close the chat"
+          />
         </button>
         <div className="mt-3 h-full overflow-y-auto px-3" ref={scrollRef}>
           {messages.map((message) => (
@@ -79,15 +83,12 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
             <div className="mx-8 flex h-full flex-col items-center justify-center gap-3 text-center">
               <Bot size={28} />
               <p className="text-lg font-medium">
-                The chatbot is currently under maintenance!
-              </p>
-              {/* <p className="text-lg font-medium">
                 Send a message to start the AI chat!
               </p>
               <p>
                 You can ask the chatbot any question about me and it will find
                 the relevant information on this website.
-              </p> */}
+              </p>
             </div>
           )}
         </div>
@@ -101,17 +102,18 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
           >
             <Trash size={24} />
           </button>
-          <label htmlFor="chat-input" className="sr-only">Type your message here</label>
+          <label htmlFor="chat-input" className="sr-only">
+            Type your message here
+          </label>
           {/* locked chatbot temporarily by adding disabled */}
           <input
             id="chat-input"
             value={input}
             onChange={handleInputChange}
-            placeholder="Chatbot is under maintenance..."
+            placeholder="Ask me anything..."
             // placeholder="Ask something here..."
             className="grow rounded border bg-background px-3 py-2"
             ref={inputRef}
-            disabled
           />
           <button
             type="submit"
