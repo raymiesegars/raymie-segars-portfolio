@@ -67,6 +67,7 @@ const projects: Project[] = [
       { name: "Next.js" },
       { name: "React" },
       { name: "Vercel" },
+      { name: "Three.js" },
       { name: "MongoDB" },
       { name: "Tailwind" },
     ],
