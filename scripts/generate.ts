@@ -9,11 +9,25 @@ import { getEmbeddingsCollection, getVectorStore } from "../src/lib/astradb";
 import { Redis } from "@upstash/redis";
 
 async function generateEmbeddings() {
-  await Redis.fromEnv().flushdb();
+  // Check if required environment variables are present
+  if (!process.env.ASTRA_DB_ENDPOINT || !process.env.ASTRA_DB_APPLICATION_TOKEN) {
+    console.log("Skipping embeddings generation: Astra DB environment variables not set");
+    return;
+  }
+
+  try {
+    await Redis.fromEnv().flushdb();
+  } catch (error) {
+    console.log("Warning: Could not flush Redis cache:", error instanceof Error ? error.message : String(error));
+  }
 
   const vectorStore = await getVectorStore();
 
-  (await getEmbeddingsCollection()).deleteMany({});
+  try {
+    (await getEmbeddingsCollection()).deleteMany({});
+  } catch (error) {
+    console.log("Warning: Could not clear embeddings collection:", error instanceof Error ? error.message : String(error));
+  }
 
   const loader = new DirectoryLoader(
     "src/app/",
@@ -50,6 +64,10 @@ async function generateEmbeddings() {
   const splitDocs = await splitter.splitDocuments(docs);
 
   await vectorStore.addDocuments(splitDocs);
+  console.log("Embeddings generated successfully");
 }
 
-generateEmbeddings();
+generateEmbeddings().catch((error) => {
+  console.error("Error generating embeddings:", error);
+  process.exit(0); // Exit gracefully to allow build to continue
+});
