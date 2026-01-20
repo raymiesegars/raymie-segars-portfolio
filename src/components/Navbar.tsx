@@ -43,7 +43,7 @@ export default function Navbar() {
 
       const pdfBlob = await pdfDoc.save();
 
-      const pdfUrl = URL.createObjectURL(new Blob([pdfBlob]));
+      const pdfUrl = URL.createObjectURL(new Blob([pdfBlob as BlobPart]));
 
       const link = document.createElement("a");
       link.href = pdfUrl;
@@ -57,7 +57,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 bg-background">
+    <header className="bg-background">
       <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-3 py-4 md:flex">
         <nav className="hidden space-x-2 font-medium md:flex">
           <NavLink href="/">home</NavLink>
