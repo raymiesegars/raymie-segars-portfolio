@@ -20,7 +20,8 @@ async function deleteCollection() {
     const db = new AstraDB(token, endpoint);
     console.log(`🗑️  Deleting collection: ${collection}...`);
     
-    await db.collection(collection).delete();
+    const collectionRef = await db.collection(collection);
+    await collectionRef.delete();
     
     console.log(`✅ Collection "${collection}" deleted successfully!`);
     console.log(`\n📝 Next steps:`);
