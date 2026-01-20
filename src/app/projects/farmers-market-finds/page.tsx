@@ -1,6 +1,5 @@
 "use client";
 
-import { ClickHereIcon } from "@/components/ui/ClickHere";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 
@@ -10,35 +9,6 @@ export default function Page() {
       <H1>Farmers Market Finds</H1>
       <hr className="border-muted" />
       <section className="flex flex-col space-y-3">
-        <div className="flex items-center justify-between">
-          <H2>Project Link</H2>
-
-          <div className="flex items-center">
-            <ClickHereIcon />
-            <a
-              href="https://farmers-market-finds.raymiesegars.com/"
-              className="flex items-center justify-center gap-3 rounded-lg border p-5 transition duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                width: "150px",
-                minHeight: "50px",
-                backgroundColor: "#19A54938",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#19A54995";
-              }}
-            >
-              <span className="w-80 text-center text-2xl font-semibold tracking-tight">
-                Farmers Market Finds
-              </span>
-            </a>
-          </div>
-        </div>
-        <hr className="border-muted" />
         <H2>About The Site</H2>
         <p className="p-2">
           The Farmers Market Finds website revolutionizes the way vendors and

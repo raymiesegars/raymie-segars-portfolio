@@ -31,13 +31,17 @@ export default function Page() {
         <section className="space-y-3">
           <H2>Who am I?</H2>
           <p className="p-2">
-            Hello, and welcome! My name is Raymie Segars, a passionate software
-            developer based in Asheville, North Carolina. Embarking on my
-            programming journey in 2022, I&apos;ve since been deeply immersed in
-            the world of web and application development. My commitment to
-            continuous learning and improvement has been the cornerstone of my
-            journey, allowing me to tackle and create a diverse range of web
-            application projects.{" "}
+            Hello, and welcome! My name is Raymie Segars, a full stack web software engineer 
+            based in Asheville, North Carolina. With 1.5 years of professional experience, 
+            I&apos;ve been deeply immersed in the world of web and application development. 
+            My commitment to continuous learning and improvement has been the cornerstone of my 
+            journey, allowing me to tackle and create a diverse range of web application projects.
+          </p>
+          <p className="p-2">
+            I&apos;ve worked on multiple client projects throughout my career, including a project 
+            for Hendersonville County called FastRoots, where I contributed to building solutions 
+            that serve the community. I also worked at Aktiga, where I built immersive VR applications, 
+            combining my passion for web development with cutting-edge virtual reality technology.
           </p>
           <p className="p-2">
             I&apos;m passionate about building cool apps and websites and I love

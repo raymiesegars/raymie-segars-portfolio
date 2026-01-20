@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <StarCanvasProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className="flex min-h-screen flex-col justify-between p-1">
           <ThemeProvider attribute="class">
             <Navbar />

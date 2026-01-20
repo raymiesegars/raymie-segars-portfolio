@@ -32,6 +32,11 @@ const formSchema = z.object({
 export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      subject: "",
+      body: "",
+    },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -48,7 +53,11 @@ export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
         }),
       });
       if (res.ok) {
-        form.reset(); // Reset the form
+        form.reset({
+          email: "",
+          subject: "",
+          body: "",
+        }); // Reset the form with empty strings
         toast.success("Email sent");
         onSubmitSuccess(); // Call onSubmitSuccess function to close the modal
       } else {

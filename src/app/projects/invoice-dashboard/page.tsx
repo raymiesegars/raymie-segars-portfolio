@@ -1,7 +1,6 @@
 "use client";
 
 import Technologies from "@/components/Technologies";
-import { ClickHereIcon } from "@/components/ui/ClickHere";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { H3 } from "@/components/ui/H3";
@@ -16,34 +15,6 @@ export default function Page() {
       <H1>Invoice Dashboard</H1>
       <hr className="border-muted" />
       <section className="flex flex-col space-y-3">
-        <div className="flex items-center justify-between">
-          <H2>Project Link</H2>
-
-          <div className="flex items-center">
-            <ClickHereIcon />
-            <a
-              href="https://invoice-dashboard.raymiesegars.com/dashboard/invoices"
-              className="flex items-center justify-center gap-3 rounded-lg border p-5 transition duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                width: "150px",
-                minHeight: "50px",
-                backgroundColor: "#93C5FD95",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#93C5FD95";
-              }}
-            >
-              <span className="w-80 text-center text-2xl font-semibold tracking-tight">
-                Invoice Dashboard
-              </span>
-            </a>
-          </div>
-        </div>
         <H3>Login Information</H3>
         <ul className="list-inside list-disc">
           <li className="p-2">username : user@nextmail.com</li>

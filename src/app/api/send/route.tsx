@@ -3,10 +3,18 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { Separator } from "@/components/ui/separator";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   const { email, subject, body } = await req.json();
+
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (!resendApiKey) {
+    return NextResponse.json(
+      { error: "RESEND_API_KEY is not configured" },
+      { status: 500 }
+    );
+  }
+
+  const resend = new Resend(resendApiKey);
 
   try {
     const data = await resend.emails.send({

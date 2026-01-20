@@ -148,10 +148,11 @@ export default function Navbar() {
 
 function NavLink({ href, children }: NavLinkProps) {
   return (
-    <Link legacyBehavior href={href}>
-      <a className="rounded-md px-4 py-1 py-2 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary">
-        {children}
-      </a>
+    <Link
+      href={href}
+      className="rounded-md px-4 py-1 py-2 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary"
+    >
+      {children}
     </Link>
   );
 }

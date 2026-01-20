@@ -9,12 +9,12 @@ const Footer: React.FC = () => {
       <div className="mx-auto max-w-5xl space-y-5 px-3 py-5">
         <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
-            <Link href="/social" legacyBehavior>
-              <a className="hover:underline">Contact</a>
+            <Link href="/social" className="hover:underline">
+              Contact
             </Link>
 
-            <Link href="/privacy" legacyBehavior>
-              <a className="hover:underline">Privacy Policy</a>
+            <Link href="/privacy" className="hover:underline">
+              Privacy Policy
             </Link>
           </div>
         </div>

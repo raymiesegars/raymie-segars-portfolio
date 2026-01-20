@@ -1,0 +1,66 @@
+// SIMPLIFIED CHAT ROUTE - Uses existing OpenAI package
+// To use this: 
+// 1. Backup: mv src/app/api/chat/route.ts src/app/api/chat/route.ts.backup
+// 2. Copy: cp src/app/api/chat/simple-route-v2.ts.example src/app/api/chat/route.ts
+// This removes the need for Astra DB and Upstash Redis - only needs OpenAI!
+
+import OpenAI from "openai";
+import { StreamingTextResponse } from "ai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function POST(req: Request) {
+  try {
+    if (!process.env.OPENAI_API_KEY) {
+      return Response.json(
+        { error: "OPENAI_API_KEY is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const { messages } = await req.json();
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: `You are a helpful chatbot for Raymie Segars' portfolio website. 
+          Answer questions about Raymie, his projects, and his work experience.
+          Be friendly, concise, and helpful. If you don't know something specific, 
+          say so honestly.`,
+        },
+        ...messages,
+      ],
+      stream: true,
+    });
+
+    const stream = new ReadableStream({
+      async start(controller) {
+        const encoder = new TextEncoder();
+        try {
+          for await (const chunk of completion) {
+            const content = chunk.choices[0]?.delta?.content || "";
+            if (content) {
+              controller.enqueue(encoder.encode(content));
+            }
+          }
+        } catch (error) {
+          controller.error(error);
+        } finally {
+          controller.close();
+        }
+      },
+    });
+
+    return new StreamingTextResponse(stream);
+  } catch (error) {
+    console.error("Chat error:", error);
+    return Response.json(
+      { error: "Failed to process chat message" },
+      { status: 500 }
+    );
+  }
+}

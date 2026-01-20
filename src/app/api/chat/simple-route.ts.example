@@ -1,0 +1,33 @@
+// SIMPLIFIED CHAT ROUTE - Only requires OpenAI
+// To use this: 
+// 1. Backup: mv src/app/api/chat/route.ts src/app/api/chat/route.ts.backup
+// 2. Copy: cp src/app/api/chat/simple-route.ts.example src/app/api/chat/route.ts
+// 3. Install: npm install @ai-sdk/openai
+// This removes the need for Astra DB and Upstash Redis
+
+import { streamText } from "ai";
+import { openai } from "@ai-sdk/openai";
+import { StreamingTextResponse } from "ai";
+
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json();
+
+    const result = await streamText({
+      model: openai("gpt-3.5-turbo"),
+      messages,
+      system: `You are a helpful chatbot for Raymie Segars' portfolio website. 
+      Answer questions about Raymie, his projects, and his work experience.
+      Be friendly, concise, and helpful. If you don't know something specific, 
+      say so honestly.`,
+    });
+
+    return new StreamingTextResponse(result.toAIStreamResponse());
+  } catch (error) {
+    console.error("Chat error:", error);
+    return Response.json(
+      { error: "Failed to process chat message" },
+      { status: 500 }
+    );
+  }
+}

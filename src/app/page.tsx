@@ -40,12 +40,6 @@ export default function Home() {
               building web applications using new innovative frameworks and
               technologies.
             </p>
-            <div className="flex items-center">
-              <Image src="/aktiga-logo.png" alt="team" width={50} height={50} />
-              <p className="pr-1 text-center text-2xl font-bold sm:text-start pl-3">
-                Proud to be a part of the Aktïga team!
-              </p>
-            </div>
           </div>
           <div className="flex justify-center">
             <Image

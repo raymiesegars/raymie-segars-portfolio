@@ -8,7 +8,7 @@ export const FigmaIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     >
       <g fill="none">
         <rect width="256" height="256" fill="#f4f2ed" rx="60" />
-        <g clip-path="url(#skillIconsFigmaLight0)">
+        <g clipPath="url(#skillIconsFigmaLight0)">
           <path
             fill="#0acf83"
             d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334c0 18.4 14.934 33.333 33.334 33.333"
