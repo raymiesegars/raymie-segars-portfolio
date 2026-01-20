@@ -9,6 +9,24 @@ export default function Page() {
     <section className="max-w-3xl space-y-6">
       <H1>Prism Demo</H1>
       <hr className="border-muted" />
+      
+      {/* YouTube Video Embed */}
+      <section className="space-y-3">
+        <H2>Demo Video</H2>
+        <div className="relative w-full overflow-hidden rounded-lg border bg-muted/50 shadow-sm" style={{ paddingBottom: "56.25%" }}>
+          <iframe
+            className="absolute left-0 top-0 h-full w-full"
+            src="https://www.youtube.com/embed/b-HUiK8Z2bc"
+            title="prismdemo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </section>
+
+      <hr className="border-muted" />
+      
       <section className="flex flex-col space-y-3">
         <H2>About The Site</H2>
         <p className="leading-7">

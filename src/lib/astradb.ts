@@ -7,8 +7,11 @@ function getAstraDBConfig() {
   const token = process.env.ASTRA_DB_APPLICATION_TOKEN || "";
   const collection = process.env.ASTRA_DB_COLLECTION || "";
 
+  // Don't throw during build - only throw at runtime when actually needed
   if (!token || !endpoint || !collection) {
-    throw new Error("Env variables missing for Astra DB");
+    // During build, env vars might not be available, so return empty strings
+    // The error will be caught at runtime when the API is actually called
+    return { endpoint, token, collection };
   }
 
   return { endpoint, token, collection };

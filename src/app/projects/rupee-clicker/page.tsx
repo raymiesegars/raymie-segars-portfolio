@@ -13,13 +13,31 @@ export default function Page() {
     <section className="max-w-3xl space-y-6">
       <H1>Rupee Clicker</H1>
       <hr className="border-muted" />
+      
+      {/* YouTube Video Embed */}
+      <section className="space-y-3">
+        <H2>Game Demo</H2>
+        <div className="relative w-full overflow-hidden rounded-lg border bg-muted/50 shadow-sm" style={{ paddingBottom: "56.25%" }}>
+          <iframe
+            className="absolute left-0 top-0 h-full w-full"
+            src="https://www.youtube.com/embed/KPBpQY_Ys2A"
+            title="Rupee Clicker example"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </section>
+
+      <hr className="border-muted" />
+      
       <section className="flex flex-col space-y-3">
         <div className="flex items-center justify-between">
           <H2>Project Link</H2>
           <div className="flex items-center">
             <ClickHereIcon />
             <a
-              href="https://rupeeclicker.com/"
+              href="https://rupee-clicker-game.vercel.app/"
               className="flex items-center justify-center gap-3 rounded-lg border p-5 transition duration-300"
               target="_blank"
               rel="noopener noreferrer"
