@@ -46,8 +46,8 @@ export default function Page() {
         <p className="p-2">
           This is a 3D sailing experience I built inspired by One Piece. You can sail around in a ship using 
           controls similar to World of Warcraft - WASD movement with mouse look. The water is custom-made with 
-          animations, and there are islands and objects scattered around that you can collide with. There's also 
-          a border barrier so you can't sail outside the playable area. Works on both desktop and mobile - mobile 
+          animations, and there are islands and objects scattered around that you can collide with. There&apos;s also 
+          a border barrier so you can&apos;t sail outside the playable area. Works on both desktop and mobile - mobile 
           has a joystick control option.
         </p>
       </section>
@@ -59,10 +59,10 @@ export default function Page() {
         <ul className="list-inside list-disc space-y-2">
           <li className="p-2">
             <strong>WoW-style controls:</strong> Move with WASD and look around with the mouse, just like World 
-            of Warcraft. There's an onscreen control visualization so you can see what's happening.
+            of Warcraft. There&apos;s an onscreen control visualization so you can see what&apos;s happening.
           </li>
           <li className="p-2">
-            <strong>Mobile joystick:</strong> On mobile devices, there's a joystick control option that works 
+            <strong>Mobile joystick:</strong> On mobile devices, there&apos;s a joystick control option that works 
             pretty well for touch screens.
           </li>
           <li className="p-2">
@@ -74,11 +74,11 @@ export default function Page() {
             into - collision detection is working for all of them.
           </li>
           <li className="p-2">
-            <strong>Boundary barrier:</strong> There's an invisible wall around the playable area so you can't 
+            <strong>Boundary barrier:</strong> There&apos;s an invisible wall around the playable area so you can&apos;t 
             sail off into infinity.
           </li>
           <li className="p-2">
-            <strong>Music:</strong> Background music plays while you sail, and there's a volume slider to control it.
+            <strong>Music:</strong> Background music plays while you sail, and there&apos;s a volume slider to control it.
           </li>
         </ul>
       </section>
@@ -89,8 +89,8 @@ export default function Page() {
       <section className="space-y-3">
         <H2>Mobile Experience</H2>
         <p className="p-2">
-          On mobile, there's a joystick control option that works pretty well. You can see it in action below - 
-          it's positioned on the left side of the screen and gives you full control over the ship's movement.
+          On mobile, there&apos;s a joystick control option that works pretty well. You can see it in action below - 
+          it&apos;s positioned on the left side of the screen and gives you full control over the ship&apos;s movement.
         </p>
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-lg border bg-muted/50 shadow-sm">
           <div className="relative" style={{ paddingBottom: "198.3%" }}>
