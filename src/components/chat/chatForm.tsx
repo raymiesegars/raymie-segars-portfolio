@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type FieldValues } from "react-hook-form";
 import { z } from "zod";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -30,6 +31,12 @@ const formSchema = z.object({
 });
 
 export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,6 +73,10 @@ export function ChatForm({ onSubmitSuccess }: { onSubmitSuccess: () => void }) {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  if (!isMounted) {
+    return null;
   }
 
   return (

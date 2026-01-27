@@ -48,6 +48,26 @@ interface Technology {
 
 const projects: Project[] = [
   {
+    id: "3d-sailing-environment",
+    title: "3D Sailing Environment",
+    description:
+      "A 3D sailing game inspired by One Piece where you can sail around in a ship using WoW-style controls. Features custom animated water, collidable islands, music with volume control, and mobile joystick support.",
+    technologies: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Three.js" },
+      { name: "TypeScript" },
+    ],
+    imageUrl: "/thousand-sunny.png",
+    detailPageUrl: "/projects/3d-sailing-environment",
+    backgroundColor: "#FF8C4238",
+    isOriginal: true,
+    isTutorial: false,
+    isClientWork: false,
+    isDeprecated: false,
+    completeness: 75,
+  },
+  {
     id: "rupee-clicker",
     title: "Rupee Clicker",
     description:
