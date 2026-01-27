@@ -1,0 +1,25 @@
+# robots.txt for raymiesegars.com
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Sitemap location
+Sitemap: https://raymiesegars.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (1 second)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/

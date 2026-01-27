@@ -13,7 +13,6 @@ import { ZodIcon } from "@/components/ui/AboutIcons/ZodIcon";
 import { MongoDBIconProjectTechnology } from "@/components/ui/ProjectIcons/MongoDBIconProject";
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
 import { StripeIcon } from "@/components/ui/AboutIcons/StripeIcon";
 import { Seedling } from "@/components/ui/ProjectIcons/Seedling";
 import { Tutorial } from "@/components/ui/ProjectIcons/Tutorial";
@@ -349,22 +348,7 @@ const DeprecatedBadge: FC = () => (
 
 const ProjectsPage: FC = () => {
   return (
-    <>
-      <Head>
-        <title>Projects - Raymie Segars</title>
-        <meta
-          name="description"
-          content="Discover projects developed by Raymie Segars, featuring technologies like React, MongoDB, and Next.js."
-        />
-        <meta property="og:title" content="Projects - Raymie Segars" />
-        <meta
-          property="og:description"
-          content="Explore the innovative projects by Raymie Segars, showcasing skills in web development and software engineering."
-        />
-        <meta property="og:type" content="website" />
-      </Head>
-
-      <main className="flex justify-center">
+    <main className="flex justify-center">
         <div className="max-w-full p-4">
           <h1 className="mb-8 text-center text-3xl font-bold">My Projects</h1>
           
@@ -502,7 +486,6 @@ const ProjectsPage: FC = () => {
           </div>
         </div>
       </main>
-    </>
   );
 };
 

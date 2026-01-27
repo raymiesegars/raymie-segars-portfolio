@@ -58,33 +58,33 @@ export default function Navbar() {
 
   return (
     <header className="bg-background">
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-3 py-4 md:flex">
-        <nav className="hidden space-x-2 font-medium md:flex">
+      <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-3 py-4 md:flex-nowrap">
+        <nav className="hidden shrink-0 space-x-2 font-medium md:flex">
           <NavLink href="/">home</NavLink>
+          <NavLink href="/client-work">client work</NavLink>
           <NavLink href="/projects">projects</NavLink>
           <NavLink href="/about">about me</NavLink>
           <NavLink href="/social">social media</NavLink>
         </nav>
 
-        <div className="flex hidden items-center gap-4 md:flex">
+        <div className="flex hidden shrink-0 items-center gap-3 md:flex">
           <AIChatButton  />
           <ThemeToggle />
           <button
             onClick={toggleVisibility}
             aria-label="Button to pause star background animation"
-            className="flex h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-[#31A8FF88]"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full p-2 hover:bg-[#31A8FF88]"
           >
             <StarIcon />
           </button>
+          <button
+            className="whitespace-nowrap cursor-pointer rounded-md bg-[#31A8FF65] hover:bg-[#31a9ff99] px-4 py-2 shrink-0"
+            onClick={downloadResume}
+            aria-label="Download Resume"
+          >
+            Resume
+          </button>
         </div>
-
-        <button
-          className="hidden cursor-pointer rounded-md bg-[#31A8FF65] hover:bg-[#31a9ff99] px-4 py-2 md:flex"
-          onClick={downloadResume}
-          aria-label="Download Resume"
-        >
-          Resume
-        </button>
 
         <Chat
           isCollapsed={isCollapsed}
@@ -120,6 +120,7 @@ export default function Navbar() {
         <div className="md:hidden" id="mobile-menu">
           <div className="flex flex-col items-center space-y-3 px-2 pb-3 pt-3 sm:px-3">
             <NavLink href="/">home</NavLink>
+            <NavLink href="/client-work">client work</NavLink>
             <NavLink href="/projects">projects</NavLink>
             <NavLink href="/about">about me</NavLink>
             <NavLink href="/social">social media</NavLink>
@@ -150,7 +151,7 @@ function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link
       href={href}
-      className="rounded-md px-4 py-1 py-2 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary"
+      className="rounded-md px-4 py-2 transition-colors duration-300 hover:bg-[#31A8FF88] hover:text-primary"
     >
       {children}
     </Link>

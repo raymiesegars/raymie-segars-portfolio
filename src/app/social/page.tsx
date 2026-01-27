@@ -7,7 +7,6 @@ import { TwitterIcon } from "@/components/ui/AboutIcons/TwitterIcon";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { useState } from "react";
-import Head from "next/head";
 
 interface Socials {
   name: string;
@@ -46,26 +45,7 @@ export default function Page() {
   const [iconSize, setIconSize] = useState(55);
 
   return (
-    <>
-      <Head>
-        <title>Social Media - Raymie Segars</title>
-        <meta
-          name="description"
-          content="Connect with Raymie Segars on social media platforms like GitHub, LinkedIn, Discord, and Twitter."
-        />
-        <meta property="og:title" content="Social Media - Raymie Segars" />
-        <meta
-          property="og:description"
-          content="Follow Raymie Segars across various social media platforms to stay updated with the latest projects and collaborations."
-        />
-        {/* <meta
-          property="og:image"
-          content="https://example.com/path-to-your-image.jpg"
-        /> */}
-        <meta property="og:type" content="website" />
-      </Head>
-
-      <main className="max-w-3xl space-y-6">
+    <main className="max-w-3xl space-y-6">
         <H1>Social Media</H1>
 
         <nav className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
@@ -112,6 +92,5 @@ export default function Page() {
           </p>
         </section>
       </main>
-    </>
   );
 }

@@ -8,9 +8,7 @@ import { NextIcon } from "./ui/AboutIcons/NextIcon";
 import { TailwindIcon } from "./ui/AboutIcons/TailwindIcon";
 import { HTML5Icon } from "./ui/AboutIcons/HTML5Icon";
 import { CSS3Icon } from "./ui/AboutIcons/CSS3Icon";
-import { MySQLIcon } from "./ui/AboutIcons/MySQLIcon";
 import { PostgreSQLIcon } from "./ui/AboutIcons/PostgreSQLIcon";
-import { SassIcon } from "./ui/AboutIcons/SassIcon";
 import { useState } from "react";
 import { GithubIcon } from "./ui/AboutIcons/GithubIcon";
 import { MongoDBIcon } from "./ui/AboutIcons/MongoDBIcon";
@@ -21,6 +19,15 @@ import { ZodIcon } from "./ui/AboutIcons/ZodIcon";
 import { VercelIcon } from "./ui/AboutIcons/VercelIcon";
 import { RailwayIcon } from "./ui/AboutIcons/RailwayIcon";
 import { StripeIcon } from "./ui/AboutIcons/StripeIcon";
+import { ThreejsIcon } from "./ui/AboutIcons/ThreejsIcon";
+import { SupabaseIcon } from "./ui/AboutIcons/SupabaseIcon";
+import { NeonDBIcon } from "./ui/AboutIcons/NeonDBIcon";
+import { ReactThreeFiberIcon } from "./ui/AboutIcons/ReactThreeFiberIcon";
+import { TypeScriptIcon } from "./ui/AboutIcons/TypeScriptIcon";
+import { OpenAIIcon } from "./ui/AboutIcons/OpenAIIcon";
+import { LangChainIcon } from "./ui/AboutIcons/LangChainIcon";
+import { AstraDBIcon } from "./ui/AboutIcons/AstraDBIcon";
+import { UpstashIcon } from "./ui/AboutIcons/UpstashIcon";
 
 interface Technology {
   name: string;
@@ -28,30 +35,63 @@ interface Technology {
   url: string;
 }
 
+const technologiesAI = [
+  {
+    name: "OpenAI",
+    Icon: OpenAIIcon,
+    url: "https://openai.com/",
+    backgroundColor: "#10A37F21",
+  },
+  {
+    name: "LangChain",
+    Icon: LangChainIcon,
+    url: "https://www.langchain.com/",
+    backgroundColor: "#00000021",
+  },
+  {
+    name: "Astra DB",
+    Icon: AstraDBIcon,
+    url: "https://www.datastax.com/products/datastax-astra",
+    backgroundColor: "#C1262F21",
+  },
+  {
+    name: "Upstash Redis",
+    Icon: UpstashIcon,
+    url: "https://upstash.com/",
+    backgroundColor: "#00E9A321",
+  },
+];
+
 const technologiesDevelopment = [
   {
-    name: "React.JS",
+    name: "Next.js",
+    Icon: NextIcon,
+    url: "https://nextjs.org/",
+    backgroundColor: "rgba(255,235,235,0.13)",
+  },
+  {
+    name: "React",
     Icon: ReactIcon,
     url: "https://react.dev/",
     backgroundColor: "#3E66AF21",
   },
   {
-    name: "Node.JS",
-    Icon: NodeIcon,
-    url: "https://nodejs.org/",
-    backgroundColor: "#67af3e21",
+    name: "TypeScript",
+    Icon: TypeScriptIcon,
+    url: "https://www.typescriptlang.org/",
+    backgroundColor: "#3178C621",
   },
   {
-    name: "ExpressJS",
-    Icon: ExpressIcon,
-    url: "https://expressjs.com/",
-    backgroundColor: "rgba(0,0,0,0.13)",
+    name: "Three.js",
+    Icon: ThreejsIcon,
+    url: "https://threejs.org/",
+    backgroundColor: "#00000021",
   },
   {
-    name: "Next.JS",
-    Icon: NextIcon,
-    url: "https://nextjs.org/",
-    backgroundColor: "rgba(255,235,235,0.13)",
+    name: "React Three Fiber",
+    Icon: ReactThreeFiberIcon,
+    url: "https://docs.pmnd.rs/react-three-fiber/",
+    backgroundColor: "#00000021",
   },
   {
     name: "Tailwind CSS",
@@ -60,22 +100,16 @@ const technologiesDevelopment = [
     backgroundColor: "#3e77af21",
   },
   {
-    name: "HTML5",
-    Icon: HTML5Icon,
-    url: "https://wikipedia.org/wiki/HTML5",
-    backgroundColor: "#e1711221",
+    name: "Node.js",
+    Icon: NodeIcon,
+    url: "https://nodejs.org/",
+    backgroundColor: "#67af3e21",
   },
   {
-    name: "CSS3",
-    Icon: CSS3Icon,
-    url: "https://en.wikipedia.org/wiki/CSS#CSS_3",
-    backgroundColor: "rgba(77,94,255,0.13)",
-  },
-  {
-    name: "MySQL",
-    Icon: MySQLIcon,
-    url: "https://www.mysql.com/",
-    backgroundColor: "rgba(161,169,255,0.13)",
+    name: "Express",
+    Icon: ExpressIcon,
+    url: "https://expressjs.com/",
+    backgroundColor: "rgba(0,0,0,0.13)",
   },
   {
     name: "PostgreSQL",
@@ -93,10 +127,16 @@ const technologiesDevelopment = [
 
 const technologiesServices = [
   {
-    name: "GitHub",
-    Icon: GithubIcon,
-    url: "https://github.com/",
-    backgroundColor: "rgba(255,255,255,0.13)",
+    name: "Supabase",
+    Icon: SupabaseIcon,
+    url: "https://supabase.com/",
+    backgroundColor: "#3ECF8E21",
+  },
+  {
+    name: "NeonDB",
+    Icon: NeonDBIcon,
+    url: "https://neon.tech/",
+    backgroundColor: "#00E59921",
   },
   {
     name: "MongoDB",
@@ -111,12 +151,6 @@ const technologiesServices = [
     backgroundColor: "#8560ff90",
   },
   {
-    name: "Stripe",
-    Icon: StripeIcon,
-    url: "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20839462206&utm_medium=cpc&utm_source=google&ad_content=683853401230&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjwiMmwBhDmARIsABeQ7xT_Yb6R7yc1GfxP9va-6-BsQnxJ5OEDM7sOnU5KXkkw6WksBtgeE1MaAnwmEALw_wcB",
-    backgroundColor: "#635bff55",
-  },
-  {
     name: "Vercel",
     Icon: VercelIcon,
     url: "https://vercel.com/",
@@ -127,6 +161,18 @@ const technologiesServices = [
     Icon: RailwayIcon,
     url: "https://railway.app/",
     backgroundColor: "#A21AE645",
+  },
+  {
+    name: "Stripe",
+    Icon: StripeIcon,
+    url: "https://stripe.com/",
+    backgroundColor: "#635bff55",
+  },
+  {
+    name: "GitHub",
+    Icon: GithubIcon,
+    url: "https://github.com/",
+    backgroundColor: "rgba(255,255,255,0.13)",
   },
 ];
 
@@ -146,115 +192,81 @@ const technologiesApplications = [
 ];
 
 export default function Technologies() {
-  const [iconSize, setIconSize] = useState(55);
+  const [iconSize] = useState(48);
+
+  const TechCard = ({ tech }: { tech: typeof technologiesDevelopment[0] }) => (
+    <a
+      href={tech.url}
+      className="group flex items-center gap-3 rounded-lg border bg-card p-4 transition-all duration-300 hover:border-primary hover:shadow-md"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        backgroundColor: tech.backgroundColor,
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "translateY(-2px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "translateY(0)";
+      }}
+    >
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center">
+        <tech.Icon
+          className="transition-transform duration-300 group-hover:scale-110"
+          width={iconSize}
+          height={iconSize}
+        />
+      </div>
+      <span className="font-medium">{tech.name}</span>
+    </a>
+  );
 
   return (
-    <>
-      <H2>Technologies</H2>
-      <H3 className="text-muted-foreground">Development</H3>
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-        {technologiesDevelopment.map((tech, index) => (
-          <a
-            key={index}
-            href={tech.url}
-            className="flex items-center gap-3 rounded-lg border p-5 transition duration-300"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              minWidth: "150px",
-              minHeight: "100px",
-              backgroundColor: tech.backgroundColor,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = tech.backgroundColor;
-            }}
-          >
-            <div className="flex items-center justify-start">
-              <div className="flex h-16 w-16 items-center justify-center">
-                <tech.Icon
-                  className="text"
-                  width={iconSize}
-                  height={iconSize}
-                />
-              </div>
-              <span className="ml-3">{tech.name}</span>
-            </div>
-          </a>
-        ))}
-      </div>
+    <div className="space-y-6">
+      <H2>Technologies & Skills</H2>
+      
+      <div className="space-y-4">
+        <div>
+          <H3 className="mb-3 text-lg font-semibold">AI & Machine Learning</H3>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Experience with AI text generation, voice synthesis, vector databases for semantic search, 
+            and RAG (Retrieval Augmented Generation) systems. Built AI-powered chatbots and a lip syncing 
+            app using AI video generation.
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {technologiesAI.map((tech, index) => (
+              <TechCard key={index} tech={tech} />
+            ))}
+          </div>
+        </div>
 
-      <H3 className="text-muted-foreground">Services</H3>
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-        {technologiesServices.map((tech, index) => (
-          <a
-            key={index}
-            href={tech.url}
-            className="flex items-center gap-3 rounded-lg border p-5 transition duration-300"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              minWidth: "150px",
-              minHeight: "100px",
-              backgroundColor: tech.backgroundColor,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = tech.backgroundColor;
-            }}
-          >
-            <div className="flex items-center justify-start">
-              <div className="flex h-16 w-16 items-center justify-center">
-                <tech.Icon
-                  className="text"
-                  width={iconSize}
-                  height={iconSize}
-                />
-              </div>
-              <span className="ml-3">{tech.name}</span>
-            </div>
-          </a>
-        ))}
-      </div>
+        <div>
+          <H3 className="mb-3 text-lg font-semibold">Frontend & Frameworks</H3>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {technologiesDevelopment.map((tech, index) => (
+              <TechCard key={index} tech={tech} />
+            ))}
+          </div>
+        </div>
 
-      <H3 className="text-muted-foreground">Applications</H3>
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-        {technologiesApplications.map((tech, index) => (
-          <a
-            key={index}
-            href={tech.url}
-            className="flex items-center gap-3 rounded-lg border p-5 transition duration-300"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              minWidth: "150px",
-              minHeight: "100px",
-              backgroundColor: tech.backgroundColor,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = tech.backgroundColor;
-            }}
-          >
-            <div className="flex items-center justify-start">
-              <div className="flex h-16 w-16 items-center justify-center">
-                <tech.Icon
-                  className="text"
-                  width={iconSize}
-                  height={iconSize}
-                />
-              </div>
-              <span className="ml-3">{tech.name}</span>
-            </div>
-          </a>
-        ))}
+        <div>
+          <H3 className="mb-3 text-lg font-semibold">Backend & Databases</H3>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {technologiesServices.map((tech, index) => (
+              <TechCard key={index} tech={tech} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <H3 className="mb-3 text-lg font-semibold">Design & Tools</H3>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {technologiesApplications.map((tech, index) => (
+              <TechCard key={index} tech={tech} />
+            ))}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

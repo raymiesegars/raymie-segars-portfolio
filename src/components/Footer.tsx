@@ -6,24 +6,22 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="border-t">
-      <div className="mx-auto max-w-5xl space-y-5 px-3 py-5">
-        <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
-          <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+      <div className="mx-auto max-w-5xl px-3 py-5">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="text-sm text-muted-foreground">
+            © {currentYear} Raymie Segars
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-muted-foreground">
             <Link href="/social" className="hover:underline">
               Contact
             </Link>
-
+            <span className="text-muted-foreground/50">•</span>
             <Link href="/privacy" className="hover:underline">
               Privacy Policy
             </Link>
           </div>
         </div>
-        <div className="text-center text-sm text-muted-foreground">
-          © {currentYear} Raymie Segars
-        </div>
       </div>
-
-      
     </footer>
   );
 };

@@ -2,31 +2,29 @@ import Technologies from "@/components/Technologies";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import Image from "next/image";
-import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "Learn more about Raymie Segars, a full-stack developer with 1.5 years of professional experience specializing in Next.js, React, Three.js, WebXR, and AI development.",
+  openGraph: {
+    title: "About Me - Raymie Segars",
+    description: "Learn more about Raymie Segars and his work as a full-stack developer specializing in web development, 3D experiences, and AI integration.",
+    url: "https://raymiesegars.com/about",
+  },
+  twitter: {
+    card: "summary",
+    title: "About Me - Raymie Segars",
+    description: "Learn more about Raymie Segars and his work as a full-stack developer specializing in web development, 3D experiences, and AI integration.",
+  },
+  alternates: {
+    canonical: "https://raymiesegars.com/about",
+  },
+};
 
 export default function Page() {
   return (
-    <>
-      <Head>
-        <title>About Me - Raymie Segars</title>{" "}
-        {/* Use a descriptive title tag */}
-        <meta
-          name="description"
-          content="Learn more about Raymie Segars and his work."
-        />{" "}
-        {/* Meta description */}
-        {/* Open Graph tags */}
-        <meta property="og:title" content="About Me - Raymie Segars" />
-        <meta
-          property="og:description"
-          content="Learn more about Raymie Segars and his work."
-        />
-        {/* <meta property="og:image" content="/path-to-your-image.jpg" />{" "} */}
-        {/* Replace with a relevant image path */}
-        <meta property="og:type" content="website" />
-      </Head>
-
-      <main className="max-w-3xl space-y-6">
+    <main className="max-w-3xl space-y-6">
         <H1>About Me</H1>
         <section className="space-y-3">
           <H2>Who am I?</H2>
@@ -42,6 +40,13 @@ export default function Page() {
             for Hendersonville County called FastRoots, where I contributed to building solutions 
             that serve the community. I also worked at Aktiga, where I built immersive VR applications, 
             combining my passion for web development with cutting-edge virtual reality technology.
+          </p>
+          <p className="p-2">
+            I have extensive experience with AI technologies, including building RAG (Retrieval Augmented 
+            Generation) systems, working with vector databases for semantic search, integrating OpenAI 
+            APIs for AI text and voice generation, and creating AI-powered applications. I&apos;ve built 
+            a lip syncing app using AI video generation, demonstrating my ability to work with cutting-edge 
+            AI multimedia technologies.
           </p>
           <p className="p-2">
             I&apos;m passionate about building cool apps and websites and I love
@@ -75,6 +80,5 @@ export default function Page() {
           </div>
         </section>
       </main>
-    </>
   );
 }
